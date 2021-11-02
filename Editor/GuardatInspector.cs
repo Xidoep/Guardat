@@ -17,8 +17,6 @@ public class GuardatInspector : Editor
 
         if(guardat == null) guardat = (Guardat)target;
 
-        if (Guardat.Instance == null) Guardat.Instance = guardat;
-
         if (_texte == null) _texte = new GUIStyle(GUI.skin.label) {fixedWidth = 90 };
         if (_bold == null) _bold = new GUIStyle(GUI.skin.label) {fixedWidth = 90, fontStyle = FontStyle.Bold };
 
@@ -72,23 +70,5 @@ public class GuardatInspector : Editor
         EditorGUILayout.LabelField($"Mac OS:   ~/Library/Application Suport/unity.{Application.companyName}.{Application.productName}/scriptab.les");
     }
 
-    private void OnValidate()
-    {
-        Debug.Log("hola¿?");
-
-        if (guardat == null) guardat = (Guardat)target;
-
-        if (guardat.scriptables.Length > 0)
-        {
-            Debug.Log($"I found {guardat.scriptables.Length} scriptable objects for saveing.");
-            for (int i = 0; i < guardat.scriptables.Length; i++)
-            {
-                if (guardat.scriptables[i] == null)
-                {
-                    Debug.LogError($"The scriptable object with the index [{i}] is empty!!! It could create crashes on build. FIX IT!");
-                }
-            }
-            Debug.Log("Seams there are no errors on scriptable objectes");
-        }
-    }
+    
 }

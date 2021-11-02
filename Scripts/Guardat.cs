@@ -18,8 +18,6 @@ public class Guardat : ScriptableObject {
     const char CLOSE = '}';
     const char COMETES = '"';
 
-    public static Guardat Instance;
-
     [SerializeField] public List<Dada> dades = new List<Dada>();
     [SerializeField] public List<Dada> dadesLocals = new List<Dada>();
     [SerializeField] public ScriptableObject[] scriptables;
@@ -403,10 +401,6 @@ public class Guardat : ScriptableObject {
         }
     }
 
-
-
-    //FUNCIONS PRIVADES
-   
 }
 
 

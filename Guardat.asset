@@ -21,5 +21,6 @@ MonoBehaviour:
   - key: temps
   scriptables:
   - {fileID: 11400000, guid: b4c919ec2f918e740be073fbab0b706b, type: 2}
-  scriptablesLocals: []
+  scriptablesLocals:
+  - {fileID: 0}
   tempsDeJoc: 73.09705
