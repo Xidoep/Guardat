@@ -2,5 +2,6 @@
   "name": "com.xidostudio.guardat",
   "version": "1.0.0-preview.1",
   "displayName": "XS_Guardat",
-  "type": "tool"
+  "type": "tool",
+  "hideInEditor": false
 }
