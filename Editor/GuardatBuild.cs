@@ -19,7 +19,6 @@ public class GuardatBuild
                 if (guardat.scriptables[i] == null)
                 {
                     throw new System.NotImplementedException($"The scriptable object with the index [{i}] is empty!!! It could create crashes on build. FIX IT!");
-                    Debug.LogError($"The scriptable object with the index [{i}] is empty!!! It could create crashes on build. FIX IT!");
                 }
             }
         }
@@ -31,7 +30,6 @@ public class GuardatBuild
                 if (guardat.scriptablesLocals[i] == null)
                 {
                     throw new System.NotImplementedException($"The scriptableLocal object with the index [{i}] is empty!!! It could create crashes on build. FIX IT!");
-                    Debug.LogError($"The scriptable object with the index [{i}] is empty!!! It could create crashes on build. FIX IT!");
                 }
             }
         }
