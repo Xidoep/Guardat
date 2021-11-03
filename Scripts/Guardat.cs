@@ -214,11 +214,11 @@ public class Guardat : ScriptableObject {
     {
         if (Time.realtimeSinceStartup - tempsDeJoc < 10)
         {
-            XS_Utils.Debugar.Log("Guardat temporalment bloquejat per prevenir multiples guardats");
+            //XS_Utils.Debugar.Log("Guardat temporalment bloquejat per prevenir multiples guardats");
             return;
         }
 
-        XS_Utils.Debugar.Log("Guardar");
+        //XS_Utils.Debugar.Log("Guardar");
 
         //Guardat de les dades individuals en format Binari
         FormategarDades(dades, ARXIU_DADES);
@@ -374,7 +374,7 @@ public class Guardat : ScriptableObject {
 
         if(onLoad != null) onLoad.Invoke();
 
-        XS_Utils.Debugar.Log("Carregar");
+        //XS_Utils.Debugar.Log("Carregar");
     }
 
     /// <summary>

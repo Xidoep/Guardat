@@ -1,7 +1,7 @@
 {
   "name": "com.xidostudio.guardat",
-  "version": "1.0.1-preview.1",
   "displayName": "XS_Guardat",
-  "type": "tool",
+  "version": "1.0.1",
+  "description": "Save and load variables and scriptables objectes.",
   "hideInEditor": false
 }

@@ -12,7 +12,7 @@ public class GuardatProva : MonoBehaviour {
     public string nom;
     public Vector2 direccio;
 
-    public So so;
+    //public So so;
 
     Guardat_EnCarregar<string> Nom;
     Guardat_EnEnable<float> Temps;
