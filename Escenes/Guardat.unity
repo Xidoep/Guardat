@@ -652,12 +652,36 @@ MonoBehaviour:
   m_Name: 
   m_EditorClassIdentifier: 
   guardat: {fileID: 11400000, guid: d8ba27ffe88b6fc4cb63b16236c5a60f, type: 2}
-  fet: 0
-  vida: 27
-  temps: 0
-  nom: 
-  direccio: {x: 0, y: 0}
-  so: {fileID: 0}
+  fet:
+    settings:
+      guardat: {fileID: 11400000, guid: d8ba27ffe88b6fc4cb63b16236c5a60f, type: 2}
+      local: 0
+    key: fet
+    valor: 0
+  vida:
+    settings:
+      guardat: {fileID: 11400000, guid: d8ba27ffe88b6fc4cb63b16236c5a60f, type: 2}
+      local: 0
+    key: vida
+    valor: 20
+  temps:
+    settings:
+      guardat: {fileID: 11400000, guid: d8ba27ffe88b6fc4cb63b16236c5a60f, type: 2}
+      local: 0
+    key: temps
+    valor: 5
+  nom:
+    settings:
+      guardat: {fileID: 11400000, guid: d8ba27ffe88b6fc4cb63b16236c5a60f, type: 2}
+      local: 0
+    key: nom
+    valor: qwe
+  direccio:
+    settings:
+      guardat: {fileID: 11400000, guid: d8ba27ffe88b6fc4cb63b16236c5a60f, type: 2}
+      local: 0
+    key: direccio
+    valor: {x: 0, y: 0}
 --- !u!4 &790980809
 Transform:
   m_ObjectHideFlags: 0

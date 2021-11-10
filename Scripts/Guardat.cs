@@ -6,6 +6,7 @@ using System.IO;
 using System.Runtime.Serialization.Formatters.Binary;
 using System;
 
+
 [CreateAssetMenu(menuName = "Xido Studio/Guardat/Guardat variables", fileName = "Guardat", order = 200)]
 public class Guardat : ScriptableObject {
 
@@ -285,7 +286,7 @@ public class Guardat : ScriptableObject {
     {
         if (File.Exists(Path(ARXIU_DADES)))
         {
-
+            Debug.Log(Path(ARXIU_DADES));
             //Carregar les dades individuals
             BinaryFormatter _formatter = new BinaryFormatter();
             FileStream _stream = new FileStream(Path(ARXIU_DADES), FileMode.Open);
@@ -304,7 +305,7 @@ public class Guardat : ScriptableObject {
 
         if (File.Exists(Path(ARXIU_DADES_LOCALS)))
         {
-
+            Debug.Log(Path(ARXIU_DADES_LOCALS));
             //Carregar les dades individuals
             BinaryFormatter _formatter = new BinaryFormatter();
             FileStream _stream = new FileStream(Path(ARXIU_DADES_LOCALS), FileMode.Open);
@@ -355,6 +356,7 @@ public class Guardat : ScriptableObject {
         }*/
         if (File.Exists(Path(ARXIU_SCRIPTABLES)))
         {
+            Debug.Log(Path(ARXIU_SCRIPTABLES));
             string[] _guardats = File.ReadAllText(Path(ARXIU_SCRIPTABLES)).Split(SEPARADOR);
             for (int i = 0; i < scriptables.Length; i++)
             {
@@ -363,6 +365,7 @@ public class Guardat : ScriptableObject {
         }
         if (File.Exists(Path(ARXIU_SCRIPTABLES_LOCALS)))
         {
+            Debug.Log(Path(ARXIU_SCRIPTABLES));
             string[] _guardats = File.ReadAllText(Path(ARXIU_SCRIPTABLES_LOCALS)).Split(SEPARADOR);
             for (int i = 0; i < scriptablesLocals.Length; i++)
             {

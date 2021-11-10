@@ -17,8 +17,9 @@ MonoBehaviour:
   - key: vida
   - key: nom
   - key: IdiomaActual
+  - key: 
   dadesLocals:
   - key: temps
   scriptables: []
   scriptablesLocals: []
-  tempsDeJoc: 73.09705
+  tempsDeJoc: 105.80135
