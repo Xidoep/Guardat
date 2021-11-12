@@ -1,0 +1,18 @@
+{
+    "name": "XS.GuardatEditor",
+    "rootNamespace": "",
+    "references": [
+        "GUID:d12426c58bac368498b41ebe505f3d35"
+    ],
+    "includePlatforms": [
+        "Editor"
+    ],
+    "excludePlatforms": [],
+    "allowUnsafeCode": false,
+    "overrideReferences": false,
+    "precompiledReferences": [],
+    "autoReferenced": true,
+    "defineConstraints": [],
+    "versionDefines": [],
+    "noEngineReferences": false
+}
