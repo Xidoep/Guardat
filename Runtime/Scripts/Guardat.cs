@@ -171,40 +171,41 @@ public class Guardat : ScriptableObject {
     /// </summary>
     /// <param name="_key">El nom de la Dada guardada</param>
     /// <param name="_dada">El valor de la Dada</param>
-    public void Set(string _key, object _dada, bool local = false)
+    public void SetLocal(string _key, object _dada)
     {
         bool _dadaTrobada = false;
-        if (!local)
+
+        for (int i = 0; i < dadesLocals.Count; i++)
         {
-            for (int i = 0; i < dades.Count; i++)
+            if (dadesLocals[i].key == _key)
             {
-                if (dades[i].key == _key)
-                {
-                    dades[i].dada = _dada;
-                    _dadaTrobada = true;
-                }
+                dadesLocals[i].dada = _dada;
+                _dadaTrobada = true;
             }
         }
-        else
-        {
-            for (int i = 0; i < dadesLocals.Count; i++)
-            {
-                if (dadesLocals[i].key == _key)
-                {
-                    dadesLocals[i].dada = _dada;
-                    _dadaTrobada = true;
-                }
-            }
-        }
-       
         if (_dadaTrobada)
             return;
 
-        if (!local)
-            dades.Add(new Dada(_key, _dada));
-        else dadesLocals.Add(new Dada(_key, _dada));
+        dadesLocals.Add(new Dada(_key, _dada));
     }
 
+    public void SetCloud(string _key, object _dada)
+    {
+        bool _dadaTrobada = false;
+
+        for (int i = 0; i < dades.Count; i++)
+        {
+            if (dades[i].key == _key)
+            {
+                dades[i].dada = _dada;
+                _dadaTrobada = true;
+            }
+        }
+        if (_dadaTrobada)
+            return;
+
+        dades.Add(new Dada(_key, _dada));
+    }
 
 
     /// <summary>

@@ -27,7 +27,8 @@ public class SavableVariable<T>
         set
         {
             valor = value;
-            settings.guardat.Set(key, value, settings.local);
+            if (settings.local) settings.guardat.SetLocal(key, value);
+            else settings.guardat.SetCloud(key, value);
         }
     }
 }

@@ -20,6 +20,7 @@ MonoBehaviour:
   - key: 
   dadesLocals:
   - key: temps
+  - key: Layout
   scriptables: []
   scriptablesLocals: []
-  tempsDeJoc: 105.80135
+  tempsDeJoc: 64.72395
