@@ -21,6 +21,8 @@ MonoBehaviour:
   dadesLocals:
   - key: temps
   - key: Layout
+  - key: IdiomaActual
   scriptables: []
-  scriptablesLocals: []
-  tempsDeJoc: 64.72395
+  scriptablesLocals:
+  - {fileID: 11400000, guid: 71be1992041410346b077ad9aa639868, type: 2}
+  tempsDeJoc: 3.9222503
