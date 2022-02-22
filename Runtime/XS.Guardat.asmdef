@@ -1,3 +1,16 @@
 {
-	"name": "XS.Guardat"
+    "name": "XS.Guardat",
+    "rootNamespace": "",
+    "references": [
+        "GUID:37e030ce89aa5244da079dc58a0a15f8"
+    ],
+    "includePlatforms": [],
+    "excludePlatforms": [],
+    "allowUnsafeCode": false,
+    "overrideReferences": false,
+    "precompiledReferences": [],
+    "autoReferenced": true,
+    "defineConstraints": [],
+    "versionDefines": [],
+    "noEngineReferences": false
 }
