@@ -20,6 +20,8 @@ public class Guardat : ScriptableObject {
     const char CLOSE = '}';
     const char COMETES = '"';
 
+    //public static Guardat Instance;
+
     [SerializeField] public List<Dada> dades = new List<Dada>();
     [SerializeField] public List<Dada> dadesLocals = new List<Dada>();
     [SerializeField] public ScriptableObject[] scriptables;
@@ -31,8 +33,8 @@ public class Guardat : ScriptableObject {
     public Action onLoad = null;
     public Action onSave = null;
 
-
-    string Path(string arxiu) => $"{Application.persistentDataPath}/{arxiu}";
+    public Action saveingQueue;
+    string Path(string arxiu) => $"{Application.persistentDataPath}{arxiu}";
 
 
 
@@ -91,21 +93,15 @@ public class Guardat : ScriptableObject {
     /// <summary>
     /// Funcio pensada per ser cridada al RuntimeEsdeveniments
     /// </summary>
-    public void Iniciar()
-    {
-        tempsDeJoc = 0;
-    }
+    public void Iniciar() => tempsDeJoc = 0;
     //********************
     //FUNCIONS STANDARS
     //********************
-    private void OnEnable()
+    private void OnEnable() 
     {
+        //Instance = this;
         Carregar();
     }
-
-
-
-
 
 
     //FUNCIONS PUBLIQUES
@@ -162,6 +158,12 @@ public class Guardat : ScriptableObject {
         return _tmp;
     }
 
+    public void Set(string _key, object _dada, bool local)
+    {
+        if (local) SetLocal(_key, _dada);
+        else SetCloud(_key, _dada);
+    }
+
     /// <summary>
     /// Guarda una Dada.
     /// </summary>
@@ -210,35 +212,20 @@ public class Guardat : ScriptableObject {
     [ContextMenu("Guardar")]
     public void Guardar()
     {
-        if (Time.realtimeSinceStartup - tempsDeJoc < 10)
+        if (!SuficientTempsDesdeUltimGuardat())
         {
             Debugar.Log("Guardat temporalment bloquejat per prevenir multiples guardats");
+            if(saveingQueue == null)
+            {
+                saveingQueue = Guardar;
+                XS_Coroutine.StartCoroutine_Ending(SuficientTempsDesdeUltimGuardat, Guardar);
+            }
             return;
         }
 
-        //XS_Utils.Debugar.Log("Guardar");
-
-        //Guardat de les dades individuals en format Binari
         FormategarDades(dades, ARXIU_DADES);
         FormategarDades(dadesLocals, ARXIU_DADES_LOCALS);
 
-
-        //Guardat dels scriptableObjects i els seus noms.
-        /*List<string> _noms = new List<string>();
-        string json = "";
-        for (int i = 0; i < scriptables.Count; i++)
-        {
-            _noms.Add(scriptables[i].name);
-            json += JsonUtility.ToJson(scriptables[i], true);
-            if (i != scriptables.Count - 1)
-            {
-                json += SEPARADOR;
-            }
-        }
-        noms = new Noms(_noms);
-        File.WriteAllText(Path(ARXIU_SCRIPTABLES_NOM), JsonUtility.ToJson(noms, true));
-        File.WriteAllText(Path(ARXIU_SCRIPTABLES), json);
-        */
         EscriureJsonScriptables(scriptables, ARXIU_SCRIPTABLES);
         EscriureJsonScriptables(scriptablesLocals, ARXIU_SCRIPTABLES_LOCALS);
 
@@ -246,10 +233,13 @@ public class Guardat : ScriptableObject {
 
         if (onSave != null) onSave.Invoke();
 
+        saveingQueue = null;
         Debugar.Log("Guardar");
+
 
         return;
     }
+    bool SuficientTempsDesdeUltimGuardat() => Time.realtimeSinceStartup - tempsDeJoc > 10;
     void FormategarDades(List<Dada> dades, string nomArxiu)
     {
         BinaryFormatter _formatter = new BinaryFormatter();
@@ -272,10 +262,6 @@ public class Guardat : ScriptableObject {
         File.WriteAllText(Path(nomArxiu), json);
     }
 
-    void DesformategarDades()
-    {
-
-    }
 
     /// <summary>
     /// Carrega les dades del dispositiu.
@@ -321,38 +307,6 @@ public class Guardat : ScriptableObject {
 
         }
 
-        //Carregat dels ScriptableObjects segons el seu nom si estan guardats.
-        /*if (File.Exists(Path(ARXIU_SCRIPTABLES)))
-        {
-            string[] _guardats = File.ReadAllText(Path(ARXIU_SCRIPTABLES)).Split(SEPARADOR);
-            if (File.Exists(Path(ARXIU_SCRIPTABLES_NOM)))
-            {
-                noms = JsonUtility.FromJson<Noms>(File.ReadAllText(Path(ARXIU_SCRIPTABLES_NOM)));
-
-                if (_guardats.Length > 0 && noms != null)
-                {
-                    for (int i = 0; i < noms.noms.Length; i++)
-                    {
-                        for (int z = 0; z < scriptables.Count; z++)
-                        {
-                            if (noms.noms[i] == scriptables[z].name)
-                            {
-                                JsonUtility.FromJsonOverwrite(_guardats[i], scriptables[z]);
-                                XS_Utils.Debugar.Log(_guardats[i]);
-                            }
-                        }
-                    }
-                }
-            }
-            else
-            {
-                for (int i = 0; i < _guardats.Length; i++)
-                {
-                    JsonUtility.FromJsonOverwrite(_guardats[i], scriptables[i]);
-                    XS_Utils.Debugar.Log(_guardats[i]);
-                }
-            }
-        }*/
         if (File.Exists(Path(ARXIU_SCRIPTABLES)))
         {
             Debugar.Log(Path(ARXIU_SCRIPTABLES));
@@ -377,8 +331,6 @@ public class Guardat : ScriptableObject {
         if(onLoad != null) onLoad.Invoke();
 
         Debugar.Log("Carregar");
-
-        //XS_Utils.Debugar.Log("Carregar");
     }
 
     /// <summary>
@@ -387,6 +339,7 @@ public class Guardat : ScriptableObject {
     public void Destruir()
     {
         dades.Clear();
+        dadesLocals.Clear();
         Guardar();
     }
 

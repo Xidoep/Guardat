@@ -2,7 +2,8 @@
     "name": "XS.GuardatEditor",
     "rootNamespace": "",
     "references": [
-        "GUID:d12426c58bac368498b41ebe505f3d35"
+        "GUID:d12426c58bac368498b41ebe505f3d35",
+        "GUID:e9d3cf9d156ccee4eb38af5c53f0ef62"
     ],
     "includePlatforms": [
         "Editor"
