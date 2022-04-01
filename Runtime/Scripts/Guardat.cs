@@ -100,6 +100,7 @@ public class Guardat : ScriptableObject {
     private void OnEnable() 
     {
         //Instance = this;
+        Debugar.Log("[Guardat] OnEnable => Carregar()");
         Carregar();
     }
 
@@ -271,7 +272,7 @@ public class Guardat : ScriptableObject {
     {
         if (File.Exists(Path(ARXIU_DADES)))
         {
-            Debugar.Log(Path(ARXIU_DADES));
+            Debugar.Log($"[Guardat] Carregar() => Path dades cloud = {Path(ARXIU_DADES)}");
             //Carregar les dades individuals
             BinaryFormatter _formatter = new BinaryFormatter();
             FileStream _stream = new FileStream(Path(ARXIU_DADES), FileMode.Open);
@@ -290,7 +291,7 @@ public class Guardat : ScriptableObject {
 
         if (File.Exists(Path(ARXIU_DADES_LOCALS)))
         {
-            Debugar.Log(Path(ARXIU_DADES_LOCALS));
+            Debugar.Log($"[Guardat] Carregar() => Path dades locals = {Path(ARXIU_DADES_LOCALS)}");
             //Carregar les dades individuals
             BinaryFormatter _formatter = new BinaryFormatter();
             FileStream _stream = new FileStream(Path(ARXIU_DADES_LOCALS), FileMode.Open);
@@ -309,7 +310,7 @@ public class Guardat : ScriptableObject {
 
         if (File.Exists(Path(ARXIU_SCRIPTABLES)))
         {
-            Debugar.Log(Path(ARXIU_SCRIPTABLES));
+            Debugar.Log($"[Guardat] Carregar() => Path scriptables clouds = {Path(ARXIU_SCRIPTABLES)}");
             string[] _guardats = File.ReadAllText(Path(ARXIU_SCRIPTABLES)).Split(SEPARADOR);
             for (int i = 0; i < scriptables.Length; i++)
             {
@@ -318,7 +319,7 @@ public class Guardat : ScriptableObject {
         }
         if (File.Exists(Path(ARXIU_SCRIPTABLES_LOCALS)))
         {
-            Debugar.Log(Path(ARXIU_SCRIPTABLES));
+            Debugar.Log($"[Guardat] Carregar() => Path scriptables locals = {Path(ARXIU_SCRIPTABLES)}");
             string[] _guardats = File.ReadAllText(Path(ARXIU_SCRIPTABLES_LOCALS)).Split(SEPARADOR);
             for (int i = 0; i < scriptablesLocals.Length; i++)
             {
@@ -330,7 +331,7 @@ public class Guardat : ScriptableObject {
 
         if(onLoad != null) onLoad.Invoke();
 
-        Debugar.Log("Carregar");
+        Debugar.Log("[Guardat] Carregar()");
     }
 
     /// <summary>

@@ -51,5 +51,8 @@ public class GuardatProva : MonoBehaviour {
         //so = (So)Guardat.Get("So", null);
     }
 
-    
+    private void OnValidate()
+    {
+        guardat = XS_Utils.XS_Editor.LoadGuardat<Guardat>();
+    }
 }

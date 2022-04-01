@@ -41,6 +41,7 @@ public class SavableVariable<T>
         this.local = local;
         this.valor = valor;
     }
+
 }
 
 public class SavableClass<T> where T : class

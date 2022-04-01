@@ -12,6 +12,11 @@ public abstract class Guardat_EnCarregar : MonoBehaviour
 
     private void OnEnable() => guardat.onLoad += Actualitzar;
     private void OnDisable() => guardat.onLoad -= Actualitzar;
+
+    private void OnValidate()
+    {
+        guardat = XS_Utils.XS_Editor.LoadGuardat<Guardat>();
+    }
 }
 
 public abstract class Guardat_EnEnable : MonoBehaviour
