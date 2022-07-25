@@ -26,7 +26,8 @@ MonoBehaviour:
   - key: InterficeSize
   - key: FrameRate
   - key: VolumMaster
-  scriptables: []
+  scriptables:
+  - {fileID: 11400000, guid: 5da5cfdf15cde6c49ba1941948bbb490, type: 2}
   scriptablesLocals:
   - {fileID: 11400000, guid: 84e4d9e0d069b4341ab3de9cab90a20b, type: 2}
-  tempsDeJoc: 6.4619713
+  tempsDeJoc: 2.990903
