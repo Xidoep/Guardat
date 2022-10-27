@@ -1,0 +1,9 @@
+<ui:UXML xmlns:ui="UnityEngine.UIElements" xmlns:uie="UnityEditor.UIElements" xsi="http://www.w3.org/2001/XMLSchema-instance" engine="UnityEngine.UIElements" editor="UnityEditor.UIElements" noNamespaceSchemaLocation="../../../../UIElementsSchema/UIElements.xsd" editor-extension-mode="True">
+    <Style src="project://database/Assets/XidoStudio/Guardat/Editor/EditorGuardat.uss?fileID=7433441132597879392&amp;guid=e7338ca515bc2c14b87726bddb486ca1&amp;type=3#EditorGuardat" />
+    <ui:VisualElement style="flex-direction: row; height: 30px;">
+        <ui:Button text="GUARDAR" display-tooltip-when-elided="true" name="Guardar" class="button" />
+        <ui:Button text="CARREGAR" display-tooltip-when-elided="true" name="Carregar" class="button" />
+    </ui:VisualElement>
+    <uie:ObjectField label="Object Field" allow-scene-objects="false" type="UnityEngine.ScriptableObject, UnityEngine.CoreModule" />
+    <ui:Foldout text="Foldout" name="Scriptables" />
+</ui:UXML>
