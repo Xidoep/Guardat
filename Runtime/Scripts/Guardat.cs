@@ -101,6 +101,7 @@ public class Guardat : ScriptableObject {
     {
         //Instance = this;
         Debugar.Log("[Guardat] OnEnable => Carregar()");
+        tempsDeJoc = 0;
         Carregar();
     }
 
