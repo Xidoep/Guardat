@@ -28,8 +28,4 @@ MonoBehaviour:
   scriptables:
   - {fileID: 11400000, guid: 5da5cfdf15cde6c49ba1941948bbb490, type: 2}
   scriptablesLocals: []
-<<<<<<< HEAD
   tempsDeJoc: 325.1585
-=======
-  tempsDeJoc: 236.92445
->>>>>>> 1debb1e5fe9f3e3c7af33a7b629b85c0a5c556f8
