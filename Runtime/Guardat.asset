@@ -16,20 +16,18 @@ MonoBehaviour:
   - key: fet
   - key: vida
   - key: nom
-  - key: IdiomaActual
-  - key: 
-  - key: VolumMaster
-  - key: VolumMusica
-  - key: VolumSons
-  - key: InterficeSize
+  - key: SegonaPartida
   dadesLocals:
   - key: temps
   - key: Layout
   - key: IdiomaActual
-  - key: VolumMaster
   - key: VolumMusica
   - key: VolumSons
+  - key: InterficeSize
+  - key: FrameRate
+  - key: VolumMaster
+  - key: SegonaPartida
   scriptables:
   - {fileID: 11400000, guid: 5da5cfdf15cde6c49ba1941948bbb490, type: 2}
   scriptablesLocals: []
-  tempsDeJoc: 3.279303
+  tempsDeJoc: 189.60083
