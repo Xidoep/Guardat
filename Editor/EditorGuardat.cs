@@ -52,10 +52,34 @@ public class EditorGuardat : EditorWindow
             of.styleSheets.Add(styleSheet);
             foldout.Add(of);
         }
-        
 
-        
+        Foldout foldout2 = rootVisualElement.Q<Foldout>("ScriptablesLocals");
 
+        SerializedProperty sp2 = new SerializedObject(guardat).FindProperty("scriptablesLocals");
+        for (int i = 0; i < sp2.arraySize; i++)
+        {
+            Debug.Log(sp2.GetArrayElementAtIndex(i).objectReferenceValue);
+            //VisualElement prova = new PropertyField(sp.GetArrayElementAtIndex(i));
+            ObjectField of = new ObjectField();
+            of.objectType = typeof(ScriptableObject);
+            of.value = sp2.GetArrayElementAtIndex(i).objectReferenceValue;
+            of.RegisterValueChangedCallback(evt =>
+            {
+                Debug.Log((ScriptableObject)evt.newValue);
+                Debug.Log(i);
+                guardat.scriptables[i - 1] = (ScriptableObject)evt.newValue;
+            });
+            of.styleSheets.Add(styleSheet);
+            foldout2.Add(of);
+        }
+
+
+        Button button = rootVisualElement.Q<Button>("Guardar");
+        button.clicked += guardat.Guardar;
+
+        Button button1 = rootVisualElement.Q<Button>("Carregar");
+        button1.clicked += guardat.Carregar;
+            
 
         // Import UXML
         /*var visualTree = AssetDatabase.LoadAssetAtPath<VisualTreeAsset>("Assets/XidoStudio/Guardat/Editor/EditorGuardat.uxml");

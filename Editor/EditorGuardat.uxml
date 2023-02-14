@@ -4,6 +4,6 @@
         <ui:Button text="GUARDAR" display-tooltip-when-elided="true" name="Guardar" class="button" />
         <ui:Button text="CARREGAR" display-tooltip-when-elided="true" name="Carregar" class="button" />
     </ui:VisualElement>
-    <uie:ObjectField label="Object Field" allow-scene-objects="false" type="UnityEngine.ScriptableObject, UnityEngine.CoreModule" />
-    <ui:Foldout text="Foldout" name="Scriptables" />
+    <ui:Foldout text="Scriptables" name="Scriptables" />
+    <ui:Foldout text="ScriptablesLocals" name="ScriptablesLocals" />
 </ui:UXML>
