@@ -33,6 +33,5 @@ MonoBehaviour:
   - key: LowPassMusica
   scriptables:
   - {fileID: 11400000, guid: 5da5cfdf15cde6c49ba1941948bbb490, type: 2}
-  scriptablesLocals:
-  - {fileID: 11400000, guid: a5776265ebec15d48a16432c7e91b544, type: 2}
-  tempsDeJoc: 1092.7114
+  scriptablesLocals: []
+  tempsDeJoc: 3.0618563
