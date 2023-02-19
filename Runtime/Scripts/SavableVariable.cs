@@ -13,10 +13,10 @@ public class SavableVariable<T>
     {
         get
         {
-            if((object)valor != guardat.Get(key, valor))
-            {
+            //if((object)valor != guardat.Get(key, valor))
+            //{
                 valor = (T)guardat.Get(key, valor);
-            }
+            //}
             return valor;
         }
         set
