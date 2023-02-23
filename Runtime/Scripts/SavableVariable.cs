@@ -5,48 +5,33 @@ using UnityEngine;
 [System.Serializable]
 public class SavableVariable<T>
 {
-    [SerializeField] Guardat guardat;
-    [SerializeField] string key;
-    [SerializeField] bool local;
-    [SerializeField] T valor;
-    public T Valor
-    {
-        get
-        {
-            //if((object)valor != guardat.Get(key, valor))
-            //{
-                valor = (T)guardat.Get(key, valor);
-            //}
-            return valor;
-        }
-        set
-        {
-            valor = value;
-            if (local) guardat.SetLocal(key, value);
-            else guardat.SetCloud(key, value);
-        }
-    }
-
-    public string Key { get => key; set => key = value; }
-    public bool Local => local;
-    public Guardat Guardat => guardat;
-
-    /// <summary>
-    /// It works as a constructor.
-    /// </summary>
-    public void Define(Guardat guardat, string key, bool local, T valor)
+    public SavableVariable(Guardat guardat, string key, bool local, T perDefecte)
     {
         this.guardat = guardat;
         this.key = key;
         this.local = local;
-        this.valor = valor;
+        this.perDefecte = perDefecte;
     }
 
-}
+    [SerializeField] Guardat guardat;
+    [SerializeField] string key;
+    [SerializeField] bool local;
+    [SerializeField] T perDefecte;
+    public T Valor
+    {
+        get
+        {
+            if(guardat != null) 
+                return (T)guardat.Get(key, perDefecte);
+            else return perDefecte;
+        }
+        set
+        {
+            guardat.Set(key, value, local);
+        }
+    }
 
-public class SavableClass<T> where T : class
-{
-
+    public T PerDefecte => perDefecte;
 }
 
 
