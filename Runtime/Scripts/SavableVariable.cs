@@ -12,6 +12,14 @@ public class SavableVariable<T>
         this.local = local;
         this.perDefecte = perDefecte;
     }
+    public SavableVariable(string key, bool local, T perDefecte)
+    {
+        guardat = guardat;
+        this.key = key;
+        this.local = local;
+        this.perDefecte = perDefecte;
+        Validate();
+    }
 
     [SerializeField] Guardat guardat;
     [SerializeField] string key;
@@ -32,6 +40,11 @@ public class SavableVariable<T>
     }
 
     public T PerDefecte => perDefecte;
+
+    void Validate()
+    {
+        if (guardat == null) guardat = XS_Utils.XS_Editor.LoadGuardat<Guardat>();
+    }
 }
 
 
