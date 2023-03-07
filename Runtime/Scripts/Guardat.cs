@@ -338,6 +338,7 @@ public class Guardat : ScriptableObject {
     /// <summary>
     /// Destrueix totes les dades guardades.
     /// </summary>
+    [ContextMenu("Destruir")]
     public void Destruir()
     {
         dades.Clear();
