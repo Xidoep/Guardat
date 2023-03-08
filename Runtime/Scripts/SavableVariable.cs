@@ -5,46 +5,34 @@ using UnityEngine;
 [System.Serializable]
 public class SavableVariable<T>
 {
-    public SavableVariable(Guardat guardat, string key, bool local, T perDefecte)
+    public SavableVariable(string key, Guardat.Direccio direccio, T perDefecte)
     {
-        this.guardat = guardat;
+        if (guardat == null) guardat = XS_Utils.XS_Editor.LoadGuardat<Guardat>();
         this.key = key;
-        this.local = local;
+        this.direccio = direccio;
         this.perDefecte = perDefecte;
-    }
-    public SavableVariable(string key, bool local, T perDefecte)
-    {
-        guardat = guardat;
-        this.key = key;
-        this.local = local;
-        this.perDefecte = perDefecte;
-        Validate();
     }
 
     [SerializeField] Guardat guardat;
     [SerializeField] string key;
-    [SerializeField] bool local;
+    [SerializeField] Guardat.Direccio direccio;
     [SerializeField] T perDefecte;
+
+
+
     public T Valor
     {
-        get
-        {
-            if(guardat != null) 
-                return (T)guardat.Get(key, perDefecte);
-            else return perDefecte;
-        }
-        set
-        {
-            guardat.Set(key, value, local);
-        }
+        get => guardat.Get(key, perDefecte);
+        set => guardat.Set(key, value, direccio);
     }
-
-    public T PerDefecte => perDefecte;
-
-    void Validate()
+    public T Reset() 
     {
-        if (guardat == null) guardat = XS_Utils.XS_Editor.LoadGuardat<Guardat>();
+        Valor = perDefecte;
+        return Valor;
     }
+
+
+
 }
 
 

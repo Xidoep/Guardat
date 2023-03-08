@@ -27,18 +27,18 @@ public class GuardatInspector : Editor
         EditorGUILayout.EndHorizontal();
 
         EditorGUILayout.BeginVertical();
-        for (int i = 0; i < guardat.dades.Count; i++)
+        for (int i = 0; i < guardat.dadesCloud.Count; i++)
         {
             EditorGUILayout.BeginHorizontal();
-            EditorGUILayout.TextField(guardat.dades[i].key, _bold);
-            if (guardat.dades[i].dada != null)
+            EditorGUILayout.TextField(guardat.dadesCloud[i].key, _bold);
+            if (guardat.dadesCloud[i].dada != null)
             {
-                EditorGUILayout.TextField(guardat.dades[i].dada.ToString(), _texte);
+                EditorGUILayout.TextField(guardat.dadesCloud[i].dada.ToString(), _texte);
 
                 if (GUILayout.Button("X") && EditorUtility.DisplayDialog("Borrar?", "Segur que vols borrar la dada?", "BORRAR!", "no no no"))
                 {
                     Undo.RecordObject(guardat, "guardar guardat...");
-                    guardat.dades.RemoveAt(i);
+                    guardat.dadesCloud.RemoveAt(i);
                 }
             }
             EditorGUILayout.EndHorizontal();

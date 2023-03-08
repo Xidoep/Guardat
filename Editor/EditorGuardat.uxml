@@ -4,6 +4,9 @@
         <ui:Button text="GUARDAR" display-tooltip-when-elided="true" name="Guardar" class="button" />
         <ui:Button text="CARREGAR" display-tooltip-when-elided="true" name="Carregar" class="button" />
     </ui:VisualElement>
-    <ui:Foldout text="Scriptables" name="Scriptables" />
-    <ui:Foldout text="ScriptablesLocals" name="ScriptablesLocals" />
+    <ui:Label text="Cloud" display-tooltip-when-elided="true" />
+    <ui:Foldout text="Cloud" name="dades" value="true" />
+    <ui:Foldout text="Local" name="dadesLocals" value="true" />
+    <ui:Foldout text="Scriptables" name="Scriptables" value="true" style="height: 19px;" />
+    <ui:Foldout text="ScriptablesLocals" name="ScriptablesLocals" value="true" />
 </ui:UXML>

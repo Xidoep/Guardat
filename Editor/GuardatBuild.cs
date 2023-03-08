@@ -18,11 +18,11 @@ class GuardatBuild
         guardat = (Guardat)AssetDatabase.LoadAssetAtPath("Assets/XidoStudio/Guardat/Runtime/Guardat.asset", typeof(Guardat));
 
         Debug.Log("Checking scriptables...");
-        if (guardat.scriptables.Length > 0)
+        if (guardat.scriptablesCloud.Length > 0)
         {
-            for (int i = 0; i < guardat.scriptables.Length; i++)
+            for (int i = 0; i < guardat.scriptablesCloud.Length; i++)
             {
-                if (guardat.scriptables[i] == null)
+                if (guardat.scriptablesCloud[i] == null)
                 {
                     throw new System.NotImplementedException($"[GUARDAT] The scriptable object with the index [{i}] is empty!!! It could create crashes on build. FIX IT!");
                 }
