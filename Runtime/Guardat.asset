@@ -15,7 +15,6 @@ MonoBehaviour:
   dadesCloud:
   - key: SegonaPartida
   - key: BromaSortirVista
-  - key: IdiomaActual
   dadesLocals:
   - key: VolumMaster
   - key: VolumMusica
@@ -29,6 +28,8 @@ MonoBehaviour:
   - key: BromaSortirVista
   - key: MouseSensibility
   - key: IdiomaActual
-  scriptablesCloud: []
-  scriptablesLocals: []
-  tempsDeJoc: 3394.5122
+  scriptablesCloud:
+  - {fileID: 11400000, guid: 5da5cfdf15cde6c49ba1941948bbb490, type: 2}
+  scriptablesLocals:
+  - {fileID: 11400000, guid: b4c919ec2f918e740be073fbab0b706b, type: 2}
+  tempsDeJoc: 2472.198
