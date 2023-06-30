@@ -12,10 +12,26 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: b759920540757c94ba7ef2c747e6ffad, type: 3}
   m_Name: Guardat
   m_EditorClassIdentifier: 
-  dadesCloud: []
-  dadesLocals: []
+  dadesCloud:
+  - key: SegonaPartida
+  - key: BromaSortirVista
+  - key: IdiomaActual
+  dadesLocals:
+  - key: VolumMaster
+  - key: VolumMusica
+  - key: VolumSons
+  - key: Reverberacio
+  - key: Eco
+  - key: LowPassGeneral
+  - key: LowPassMusica
+  - key: InterficeSize
+  - key: Layout
+  - key: BromaSortirVista
+  - key: MouseSensibility
+  - key: IdiomaActual
+  - key: UiInputSeleccionat
   scriptablesCloud:
   - {fileID: 11400000, guid: 5da5cfdf15cde6c49ba1941948bbb490, type: 2}
   scriptablesLocals:
   - {fileID: 11400000, guid: b4c919ec2f918e740be073fbab0b706b, type: 2}
-  tempsDeJoc: 102.68927
+  tempsDeJoc: 45.616432
