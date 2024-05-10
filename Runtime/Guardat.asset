@@ -17,7 +17,6 @@ MonoBehaviour:
   - key: BromaSortirVista
   - key: IdiomaActual
   dadesLocals:
-  - key: VolumMaster
   - key: VolumMusica
   - key: VolumSons
   - key: Reverberacio
@@ -35,4 +34,4 @@ MonoBehaviour:
   - {fileID: 11400000, guid: 5da5cfdf15cde6c49ba1941948bbb490, type: 2}
   scriptablesLocals:
   - {fileID: 11400000, guid: b4c919ec2f918e740be073fbab0b706b, type: 2}
-  tempsDeJoc: 807.40643
+  tempsDeJoc: 24.636467
